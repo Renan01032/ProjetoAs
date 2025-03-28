@@ -1,0 +1,60 @@
+@charset "UTF-8";
+
+* {
+    padding: 0;
+    margin: 0;
+}
+
+/* Ajuste no layout para evitar a barra de rolagem */
+body {
+    background: url("../img/blue.jpg") no-repeat center center fixed;
+    overflow-y: hidden; /*Esconde Barra de rolagem*/
+    background-size: cover;
+}
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.card {
+    border: 2px solid rgba(255, 255, 255, .2);
+    background: transparent;
+    backdrop-filter: blur(30px);
+    box-shadow: 0 0 10px rgba(0, 0 , 0, .2);
+    color: #fff;
+    max-width: 360px;
+    width: 100%;
+}
+.form-label {
+    font-size: 0.9rem;
+}
+.form-control {
+    font-size: 0.9rem;
+    background: transparent;
+
+}
+.input-group-btn {
+    font-size: 0.9rem;
+
+}
+.btn-outline-dark {
+    font-size: 0.8rem;
+    color: #fff;
+    outline: #fff;
+}
+footer {
+    position: absolute; /* Faz o rodapé ficar fixo na parte inferior */
+    bottom: 10px; /* Ajuste o valor para colocar mais ou menos próximo da borda inferior */
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+
+footer h6 {
+    font-family: Arial, sans-serif; /* Fonte normal (Arial) */
+    font-size: 17px; /* Tamanho da fonte */
+    color: #000000; /* Cor escura para contrastar com o fundo */
+    margin: 0;
+}
+
