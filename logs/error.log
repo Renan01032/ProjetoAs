@@ -1,0 +1,1 @@
+[2025-04-03T14:53:51.194Z] [ERROR] [DB Error] Erro ao inserir contato no banco de dados - {"error":"Duplicate entry '11995407415' for key 'contatos.telefone'","query":"INSERT INTO contatos (nome, email, telefone, grupo, imagem, data_criacao) VALUES (?, ?, ?, ?, ?, NOW())"}

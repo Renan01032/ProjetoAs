@@ -1,0 +1,35 @@
+[2025-04-03T13:07:13.298Z] [INFO] [API Route] Buscando todos os contatos
+[2025-04-03T13:08:19.470Z] [INFO] [API Route] Buscando todos os contatos
+[2025-04-03T13:08:19.811Z] [INFO] [API Route] Retornando 5 contatos - {"duration":341}
+[2025-04-03T13:08:21.845Z] [INFO] [API Route] Buscando todos os contatos
+[2025-04-03T13:08:22.182Z] [INFO] [API Route] Retornando 5 contatos - {"duration":336}
+[2025-04-03T13:08:35.116Z] [INFO] [API Route] Buscando todos os contatos
+[2025-04-03T13:08:35.454Z] [INFO] [API Route] Retornando 5 contatos - {"duration":337}
+[2025-04-03T13:09:13.556Z] [INFO] [API Route] Buscando todos os contatos
+[2025-04-03T13:09:13.893Z] [INFO] [API Route] Retornando 5 contatos - {"duration":336}
+[2025-04-03T13:36:15.040Z] [INFO] [API Route] Buscando todos os contatos
+[2025-04-03T13:38:10.775Z] [INFO] [API Route] Buscando todos os contatos
+[2025-04-03T13:38:11.035Z] [INFO] [API Route] Retornando 5 contatos - {"duration":259}
+[2025-04-03T13:38:23.332Z] [INFO] [API Route] Buscando todos os contatos
+[2025-04-03T13:38:23.585Z] [INFO] [API Route] Retornando 5 contatos - {"duration":252}
+[2025-04-03T13:39:37.238Z] [INFO] [API Route] Iniciando inserção de contato - {"nome":"renan","email":"re.silva@icloud.com","telefone":"11995407415","grupo":"trabalho"}
+[2025-04-03T13:39:37.528Z] [INFO] [API Route] Contato inserido com sucesso - {"nome":"renan","email":"re.silva@icloud.com"}
+[2025-04-03T13:39:37.536Z] [INFO] [API Route] Buscando todos os contatos
+[2025-04-03T13:39:37.788Z] [INFO] [API Route] Retornando 6 contatos - {"duration":251}
+[2025-04-03T13:43:11.396Z] [INFO] [API Route] Buscando todos os contatos
+[2025-04-03T13:43:11.651Z] [INFO] [API Route] Retornando 6 contatos - {"duration":255}
+[2025-04-03T14:51:35.570Z] [INFO] [API Route] Buscando todos os contatos
+[2025-04-03T14:51:35.832Z] [INFO] [API Route] Retornando 6 contatos - {"duration":261}
+[2025-04-03T14:51:53.601Z] [INFO] [API Route] Buscando todos os contatos
+[2025-04-03T14:51:53.856Z] [INFO] [API Route] Retornando 6 contatos - {"duration":255}
+[2025-04-03T14:53:23.863Z] [INFO] [API Route] Buscando todos os contatos
+[2025-04-03T14:53:24.119Z] [INFO] [API Route] Retornando 6 contatos - {"duration":255}
+[2025-04-03T14:53:50.928Z] [INFO] [API Route] Iniciando inserção de contato - {"nome":"teste","email":"re.silva@icloud.com","telefone":"11995407415","grupo":"alunos"}
+[2025-04-03T14:54:05.857Z] [INFO] [API Route] Buscando todos os contatos
+[2025-04-03T14:54:06.112Z] [INFO] [API Route] Retornando 6 contatos - {"duration":254}
+[2025-04-03T14:54:19.517Z] [INFO] [API Route] Buscando todos os contatos
+[2025-04-03T14:54:19.772Z] [INFO] [API Route] Retornando 6 contatos - {"duration":254}
+[2025-04-03T14:56:35.765Z] [INFO] [API Route] Iniciando inserção de contato - {"nome":"teste do teste","email":"asdFDS@ASDFASDF.COM","telefone":"231312312312321312","grupo":"outros"}
+[2025-04-03T14:56:36.021Z] [INFO] [API Route] Contato inserido com sucesso - {"nome":"teste do teste","email":"asdFDS@ASDFASDF.COM"}
+[2025-04-03T14:56:36.027Z] [INFO] [API Route] Buscando todos os contatos
+[2025-04-03T14:56:36.282Z] [INFO] [API Route] Retornando 7 contatos - {"duration":254}
