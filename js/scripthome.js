@@ -191,7 +191,7 @@ const fetchContacts = async () => {
     state.contacts = data.map((contact) => ({
       id: contact.id,
       name: contact.nome || "",
-      sobrenome: contact.sobrenome || "", // Adicionado campo de sobrenome
+      sobrenome: contact.sobrenome || "", 
       phone: contact.telefone || "",
       email: contact.email || "",
       avatar: contact.imagem || DEFAULT_AVATAR,
@@ -271,7 +271,7 @@ const createContact = async (contact) => {
     const requestBody = {
       nome: contact.name,
       sobrenome: contact.sobrenome || "",
-      email: contact.email || "", // Email agora é opcional
+      email: contact.email || "", 
       telefone: contact.phone,
       grupo: contact.category || "todos",
       // 'imagem' field is removed since it doesn't exist in the database
