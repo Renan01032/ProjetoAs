@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CruzeiroTech</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="../css/home.css">
+  <link rel="icon" href="../img/favicon.png">
+</head>
+<body>
+  <!-- Sidebar area -->
+  <div class="sidebar-area">
+    <div class="app-title">
+      CRUZEIRO TECH
+      <img src="../img/pngcruzeiro.png" alt="Cruzeiro Icon" class="cruzeiro-icon">
+    </div>
+    
+    <div class="action-buttons">
+      <div class="action-btn add-contact-btn" id="addContactBtn" title="Adicionar novo contato">
+        <img src="../img/square-plus.png" alt="Adicionar"> Adicionar
+      </div>
+      <div class="action-btn email-icon" id="emailBtn" title="Enviar mensagem">
+        <img src="../img/circle-envelope.png" alt="Mensagem"> Mensagem
+      </div>
+      <div class="action-btn add-group-btn" id="addGroupBtn" title="Adicionar novo grupo">
+        <img src="../img/people-line.png" alt="Grupos"> Grupos
+      </div>
+    </div>
+    
+    <!-- Visualization section -->
+    <div class="visualization-section">
+      <div class="visualization-title">Visualização</div>
+      <div class="view-options">
+        <div class="view-option active" data-view="grid">
+          <i class="fas fa-th"></i>
+          <span>Miniatura</span>
+        </div>
+        <div class="view-option" data-view="list">
+          <i class="fas fa-list"></i>
+          <span>Lista</span>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Categories section -->
+    <div class="categories-section">
+      <div class="categories-title">Categorias</div>
+      <div class="nav-tabs" id="navTabs">
+        <!-- Tabs serão geradas via JavaScript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Main content area -->
+  <div class="main-content">
+    <!-- App header -->
+    <div class="app-header">
+      <div class="app-title-main">Contatos</div>
+      <div class="user-profile" onclick="toggleUserMenu()">
+        <div class="user-info">
+          <div class="user-name">Usuário</div>
+          <div class="user-role">Papel</div>
+        </div>
+        <img id="userAvatar" src="../img/iconContact.png" alt="Avatar" class="user-avatar">
+        <span>⋮</span>
+        
+        <!-- Menu do usuário -->
+        <div class="user-menu" id="userMenu">
+          <div class="user-menu-item" onclick="showDialog('editProfileDialog')">
+            <i class="fas fa-user-edit"></i> Editar perfil
+          </div>
+          <div class="user-menu-item" onclick="showDialog('changeEmailDialog')">
+            <i class="fas fa-envelope"></i> Alterar email
+          </div>
+          <div class="user-menu-item" onclick="showDialog('changePasswordDialog')">
+            <i class="fas fa-key"></i> Alterar senha
+          </div>
+          <div class="user-menu-divider"></div>
+          <div class="user-menu-item logout" onclick="realizarLogout()">
+            <i class="fas fa-sign-out-alt"></i> Sair
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- View controls -->
+    <div class="view-controls">
+      <div class="search-container">
+        <input type="text" class="search-bar" placeholder="Buscar" id="searchInput">
+      </div>
+      
+      <div class="right-controls">
+        <span class="sort-label">Ordenar por:</span>
+        <select class="sort-select" id="sortSelect">
+            <option value="name">Nome (A-Z)</option>
+            <option value="name-desc">Nome (Z-A)</option>
+            <option value="recent">Mais recentes</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="contacts-grid" id="contactsGrid">
+      <!-- Contatos serão gerados via JavaScript -->
+    </div>
+
+    <div class="contacts-list" id="contactsList">
+      <!-- Lista de contatos será gerada via JavaScript -->
+    </div>
+  </div>
+
+  <!-- Message Dialog -->
+  <div class="dialog" id="messageDialog">
+    <div class="dialog-content">
+      <div class="dialog-header">
+        <div class="dialog-title">Agendar Mensagem</div>
+        <button class="dialog-close" onclick="closeDialog('messageDialog')">&times;</button>
+      </div>
+      
+      <div class="contact-select-container">
+        <label for="contactSelect">Selecione o contato:</label>
+        <select id="contactSelect" class="contact-select">
+          <!-- Opções geradas via JavaScript -->
+        </select>
+      </div>
+      
+      <div id="messageRecipient" class="contact-name" style="margin-bottom: 10px;"></div>
+      <textarea class="message-textarea" placeholder="Mensagem" id="messageText"></textarea>
+      
+      <div class="date-time-picker">
+        <input type="date" class="date-input" id="messageDate">
+        <input type="time" class="time-input" id="messageTime">
+      </div>
+      
+      <div class="message-footer">
+        <button class="whattsbutton" id="sendMessagewhatts">
+          Enviar
+          <div class="send-icon"></div>
+        </button>
+        <button class="send-button" id="sendMessageBtn">
+          Agendar envio
+          <div class="send-icon"></div>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Profile Dialog -->
+  <div class="dialog" id="profileDialog">
+    <div class="dialog-content">
+      <div class="dialog-header">
+        <div class="dialog-title">Perfil de Contato</div>
+        <button class="dialog-close" onclick="closeDialog('profileDialog')">&times;</button>
+      </div>
+      <div class="profile-avatar-container">
+        <img src="../img/iconContact.png" alt="Avatar" class="profile-avatar" id="profileAvatar">
+        <div class="avatar-upload">
+          <label for="avatarInput" class="avatar-upload-btn">Inserir</label>
+          <input type="file" id="avatarInput" class="avatar-input" accept="image/*">
+        </div>
+      </div>
+      <input type="text" class="profile-input" id="profileName" placeholder="Nome">
+      <input type="text" class="profile-input" id="profileSobrenome" placeholder="Sobrenome">
+      <input type="tel" class="profile-input" id="profilePhone" placeholder="Telefone">
+      <input type="email" class="profile-input" id="profileEmail" placeholder="Email">
+      
+      <select class="category-select" id="profileCategory">
+        <!-- Opções de grupo geradas via JavaScript -->
+      </select>
+      
+      <div class="profile-actions">
+        <button class="profile-button btn-message" id="profileMessageBtn">Mensagem</button>
+        <button class="profile-button btn-delete" id="profileDeleteBtn">Excluir</button>
+        <button class="profile-button btn-save" id="profileSaveBtn">Salvar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Group Dialog -->
+  <div class="dialog" id="groupDialog">
+    <div class="dialog-content">
+      <div class="dialog-header">
+        <div class="dialog-title" id="groupDialogTitle">Novo Grupo</div>
+        <button class="dialog-close" onclick="closeDialog('groupDialog')">&times;</button>
+      </div>
+      
+      <input type="text" class="group-input" id="groupName" placeholder="Nome do grupo">
+      
+      <div class="group-members">
+        <div class="group-members-title">Membros do grupo</div>
+        <div class="member-list" id="groupMembersList">
+          <!-- Checkboxes de membros geradas via JavaScript -->
+        </div>
+      </div>
+      
+      <div class="group-actions">
+        <button class="group-button btn-delete-group" id="deleteGroupBtn">Excluir Grupo</button>
+        <button class="group-button btn-create-group" id="saveGroupBtn">Salvar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Edit Profile Dialog -->
+  <div class="dialog" id="editProfileDialog">
+    <div class="dialog-content">
+      <div class="dialog-header">
+        <div class="dialog-title">Editar Perfil</div>
+        <button class="dialog-close" onclick="closeDialog('editProfileDialog')">&times;</button>
+      </div>
+      <form id="editProfileForm">
+        <div class="profile-avatar-container">
+          <img src="../img/iconContact.png" alt="Avatar" class="profile-avatar" id="editAvatar">
+          <div class="avatar-upload">
+            <label for="editAvatarInput" class="avatar-upload-btn">Alterar</label>
+            <input type="file" id="editAvatarInput" class="avatar-input" accept="image/*">
+          </div>
+        </div>
+        <input type="text" class="profile-input" id="editNome" placeholder="Nome" required>
+        <input type="tel" class="profile-input" id="editTelefone" placeholder="Telefone" required>
+        
+        <div class="profile-actions">
+          <button type="button" class="profile-button btn-cancel" onclick="closeDialog('editProfileDialog')">Cancelar</button>
+          <button type="submit" class="profile-button btn-save">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Change Email Dialog -->
+  <div class="dialog" id="changeEmailDialog">
+    <div class="dialog-content">
+      <div class="dialog-header">
+        <div class="dialog-title">Alterar Email</div>
+        <button class="dialog-close" onclick="closeDialog('changeEmailDialog')">&times;</button>
+      </div>
+      <form id="changeEmailForm">
+        <input type="email" class="profile-input" id="newEmail" placeholder="Novo Email" required>
+        <input type="password" class="profile-input" id="emailConfirmPassword" placeholder="Confirme sua senha" required>
+        
+        <div class="profile-actions">
+          <button type="button" class="profile-button btn-cancel" onclick="closeDialog('changeEmailDialog')">Cancelar</button>
+          <button type="submit" class="profile-button btn-save">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Change Password Dialog -->
+  <div class="dialog" id="changePasswordDialog">
+    <div class="dialog-content">
+      <div class="dialog-header">
+        <div class="dialog-title">Alterar Senha</div>
+        <button class="dialog-close" onclick="closeDialog('changePasswordDialog')">&times;</button>
+      </div>
+      <form id="changePasswordForm">
+        <input type="password" class="profile-input" id="currentPassword" placeholder="Senha Atual" required>
+        <input type="password" class="profile-input" id="newPassword" placeholder="Nova Senha" required>
+        <input type="password" class="profile-input" id="confirmNewPassword" placeholder="Confirme a Nova Senha" required>
+        
+        <div class="profile-actions">
+          <button type="button" class="profile-button btn-cancel" onclick="closeDialog('changePasswordDialog')">Cancelar</button>
+          <button type="submit" class="profile-button btn-save">Salvar</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Loading Spinner -->
+  <div class="loading-spinner" id="loadingSpinner">
+    <div class="spinner"></div>
+  </div>
+
+  <script type="module" src="/view/script/main.js"></script>
+  <script type="module" src="/view/script/user-profile.js"></script>
+</body>
+</html>
